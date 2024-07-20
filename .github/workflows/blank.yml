@@ -1,0 +1,27 @@
+name: Sample
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read # This is required for actions/checkout
+  actions: read # this is required for read the actions
+
+env:
+  LOREM: IPSUM
+
+
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 3
+
+      - shell: bash
+        name: get env
+        run: |
+            echo ${{ env.GITHUB_REPOSITORY }}
+            env
+            ${{ env.GITHUB_REPOSITORY }}
