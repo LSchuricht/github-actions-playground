@@ -22,6 +22,11 @@ jobs:
       - shell: bash
         name: get env
         run: |
-            echo ${{ env.GITHUB_REPOSITORY }}
+            echo "repo : ${{ env.GITHUB_REPOSITORY }}"
+            echo "-------------------"
             env
+            echo "-------------------"
             ${{ env.GITHUB_REPOSITORY }}
+            echo "-------------------"
+            echo $github.repository
+            echo "-------------------"
